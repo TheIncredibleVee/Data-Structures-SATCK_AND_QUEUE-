@@ -34,9 +34,11 @@ int main(){
 		gotoxy(20,8);   cout<<"      1.PUSH        ";
 		gotoxy(20,9);   cout<<"      2.POP          ";
 		gotoxy(20,10);  cout<<"      3.DISPLAY           ";
-		gotoxy(20,11);  cout<<"      4.EXIT";
-		gotoxy(20,14);  cout<<" ============================";
-		gotoxy(20,16);  cout<<"     Input Choice - ";
+		gotoxy(20,11);  cout<<"      4.IS EMPTY           ";
+		gotoxy(20,12);  cout<<"      5.CLEAR           ";
+		gotoxy(20,13);  cout<<"      6.EXIT";
+		gotoxy(20,16);  cout<<" ============================";
+		gotoxy(20,18);  cout<<"     Input Choice - ";
 		input= getche() ;
 		switch(input){
 			case '1':
@@ -72,6 +74,30 @@ int main(){
 				getch();
 				break;
 			case '4':
+				if(top==NULL){
+					gotoxy(20,17);cout<<"STACK EMPTY";
+					gotoxy(20,18);cout<<"PRESS ANY KEY TO CONTINUE";
+				}
+				else{
+					gotoxy(20,17);cout<<"STACK NOT EMPTY";
+					gotoxy(20,18);cout<<"PRESS ANY KEY TO CONTINUE";
+				}
+				getch();
+				break;
+			case '5':
+				Node* current = *top;  
+				Node* next;  
+				while (current != NULL) {  
+    					next = current->next;  
+    					free(current);  
+    					current = next;  
+				}  
+				*top = NULL; 
+				gotoxy(20,17);cout<<"STACK CLEARED";
+				gotoxy(20,18);cout<<"PRESS ANY KEY TO CONTINUE";
+				getch();
+				break;
+			case '6':
 				exit(0);
 				break;
 			default:
