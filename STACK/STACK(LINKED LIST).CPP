@@ -85,7 +85,7 @@ int main(){
 				getch();
 				break;
 			case '5':
-				Node* current = *top;  
+				Node* current = top;  
 				Node* next;  
 				while (current != NULL) {  
     					next = current->next;  
@@ -105,7 +105,7 @@ int main(){
 				gotoxy(20,21);cout<<"TRY AGAIN";
 				break;
 		}
-	}while(input!='4');
+	}while(input!='6');
 	return 0;
 }
 
